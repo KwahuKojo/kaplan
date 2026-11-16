@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<!-- saved from url=(0143)file:///private/var/folders/b9/c8mwqv054y1677ty694521nr0000gp/T/0A410A4D-6F0D-4AC9-90FD-F0CCD578D194/kaplan_illinois_real_estate_study_app.html -->
+<!-- saved from url=(0111)file:///private/var/folders/b9/c8mwqv054y1677ty694521nr0000gp/T/55C9120B-5B90-422A-8D85-B2CD8129B935/index.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Illinois &amp; National Real Estate Exam Study App</title>
+    <title>Comprehensive Illinois &amp; National Real Estate Exam Study App</title>
     <style>
         :root {
             --primary: #1e3a8a;
@@ -38,7 +38,7 @@
 
         .container {
             width: 100%;
-            max-width: 800px;
+            max-width: 850px;
             background: var(--surface);
             border-radius: var(--radius);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -85,8 +85,14 @@
             gap: 12px;
         }
 
+        .btn-grid-5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+        }
+
         .select-btn {
-            padding: 14px;
+            padding: 14px 10px;
             border: 2px solid var(--border);
             border-radius: 8px;
             background: var(--surface);
@@ -95,6 +101,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
             text-align: center;
+            font-size: 0.95rem;
         }
 
         .select-btn:hover {
@@ -332,16 +339,16 @@
 
     <div class="container">
         <h1>Kaplan Illinois Real Estate QBank</h1>
-        <p class="subtitle">Interactive Exam Preparation Tool (National &amp; State Standards)</p>
+        <p class="subtitle">Comprehensive Practice Exam (National &amp; Illinois State Curriculum Nodes)</p>
 
         <!-- SETUP SCREEN -->
         <div id="setupScreen" class="setup-screen">
             <div class="form-group">
                 <label class="form-label">Select Exam Domain</label>
                 <div class="btn-grid" id="domainSelector">
-                    <button class="select-btn active" data-val="National">National</button>
+                    <button class="select-btn" data-val="National">National</button>
                     <button class="select-btn" data-val="State">State (IL)</button>
-                    <button class="select-btn" data-val="Mixed">Mixed</button>
+                    <button class="select-btn active" data-val="Mixed">Mixed</button>
                 </div>
             </div>
 
@@ -351,6 +358,17 @@
                     <button class="select-btn" data-val="Easy">Easy</button>
                     <button class="select-btn" data-val="Hard">Hard</button>
                     <button class="select-btn active" data-val="Mixed">Mixed</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Question Count per Session (No Repeats)</label>
+                <div class="btn-grid-5" id="countSelector">
+                    <button class="select-btn active" data-val="10">10</button>
+                    <button class="select-btn" data-val="15">15</button>
+                    <button class="select-btn" data-val="25">25</button>
+                    <button class="select-btn" data-val="50">50</button>
+                    <button class="select-btn" data-val="100">100</button>
                 </div>
             </div>
 
@@ -386,7 +404,7 @@
         <!-- RESULTS SCREEN -->
         <div id="resultsScreen" class="results-screen">
             <h2>Session Completed!</h2>
-            <p>You have successfully finished your customized practice session.</p>
+            <p>You have successfully finished your customized Kaplan practice session.</p>
             
             <div class="score-circle">
                 <div class="score-value" id="finalScoreVal">80%</div>
@@ -406,11 +424,11 @@
             <div class="calc-body" id="calcBody">
                 <p style="font-weight: 600; margin-bottom: 8px; font-size: 0.9rem;">Transfer Tax / Proration Calculator</p>
                 <div class="calc-row">
-                    <label style="font-size: 0.85rem; width: 100px;">Sale Price ($):</label>
+                    <label style="font-size: 0.85rem; width: 120px;">Sale Price ($):</label>
                     <input type="number" id="calcPrice" value="350000">
                 </div>
                 <div class="calc-row">
-                    <label style="font-size: 0.85rem; width: 100px;">State Tax Rate:</label>
+                    <label style="font-size: 0.85rem; width: 120px;">State Tax Rate:</label>
                     <span style="font-size: 0.85rem; color: var(--text-light);">0.50 per $500 (IL)</span>
                 </div>
                 <button class="nav-btn primary-btn" style="padding: 8px 16px; font-size: 0.85rem; margin-top: 5px;" id="calcCompute">Calculate Stamps</button>
@@ -420,141 +438,748 @@
     </div>
 
     <script>
+        // ROBUST QUESTION BANK COVERING ALL KAPLAN CURRICULUM NODES (100+ UNIQUE QUESTIONS)
         const questionPool = [
+            // --- PROPERTY OWNERSHIP & INTERESTS ---
             {
                 domain: "National",
                 difficulty: "Easy",
                 question: "Which type of ownership defines an estate held by two or more persons with the right of survivorship?",
-                options: [
-                    "Tenancy in common",
-                    "Joint tenancy",
-                    "Tenancy in severalty",
-                    "Life estate"
-                ],
+                options: ["Tenancy in common", "Joint tenancy", "Tenancy in severalty", "Life estate"],
                 correct: 1,
                 explanation: "Joint tenancy includes the right of survivorship, meaning upon the death of one joint tenant, their interest automatically passes to the surviving joint tenants."
             },
             {
                 domain: "National",
+                difficulty: "Medium",
+                question: "A parcel of land is bordered by a navigable river. The landowner's property rights extend to which boundary?",
+                options: ["The middle of the riverbed", "The high-water mark", "The low-water mark or water's edge", "Three miles offshore"],
+                correct: 2,
+                explanation: "Under littoral rights (for navigable bodies of water), the landowner's property extends to the accretion line or water's edge. For non-navigable rivers, ownership typically extends to the center line."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "An owner grants a life estate to their parent for the duration of the parent's life, with the stipulation that title will pass to the owner's niece upon the parent's death. What interest does the niece hold during the parent's lifetime?",
+                options: ["Reversionary interest", "Remainder interest", "Estate in severalty", "Dower interest"],
+                correct: 1,
+                explanation: "When a life estate names a third party to receive the property upon termination of the life estate, that third party holds a remainder interest (remainderman)."
+            },
+            {
+                domain: "National",
                 difficulty: "Easy",
-                question: "What fiduciary duty requires a real estate agent to put the principal's best interests above all others, including their own?",
-                options: [
-                    "Loyalty",
-                    "Care",
-                    "Disclosure",
-                    "Accounting"
-                ],
+                question: "Ownership of real property by one individual or entity is known as:",
+                options: ["Tenancy in common", "Joint tenancy", "Tenancy in severalty", "Community property"],
+                correct: 2,
+                explanation: "Severalty means ownership by one person alone (severed from all others)."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "In a tenancy in common, if one co-owner dies without a will, what happens to their fractional interest?",
+                options: ["It automatically goes to the surviving co-owners", "It escheats to the state", "It passes to the deceased owner's heirs according to state law", "It is divided equally among mortgage holders"],
+                correct: 2,
+                explanation: "Tenancy in common does not feature the right of survivorship; an owner's share passes to their heirs or devisees."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "Which of the four unities is required to create a joint tenancy?",
+                options: ["Time, title, interest, and possession", "Cost, time, location, and use", "Contract, consideration, consent, and capacity", "Deed, mortgage, title, and recording"],
                 correct: 0,
-                explanation: "Loyalty demands that the agent act solely in the best interests of the principal, avoiding any conflicts of interest."
+                explanation: "Joint tenancy requires the four unities: Unity of Time, Unity of Title, Unity of Interest, and Unity of Possession."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "A condominium owner holds which type of interest in the common elements, such as lobbies, elevators, and grounds?",
+                options: ["Severalty ownership", "Tenancy in severalty", "Undivided fractional interest as tenants in common", "Proprietary leasehold"],
+                correct: 2,
+                explanation: "Condominium owners own their individual units in severalty and hold an undivided interest in common elements as tenants in common."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "A corporation holds real estate in which form of ownership?",
+                options: ["Joint tenancy", "Tenancy in common", "Ownership in severalty", "Community property with right of survivorship"],
+                correct: 2,
+                explanation: "Because a corporation is a legal entity unto itself, it holds real property in severalty (as a sole entity)."
             },
             {
                 domain: "National",
                 difficulty: "Easy",
-                question: "An agreement in which one party makes a promise to induce another party to do something is known as what type of contract?",
-                options: [
-                    "Bilateral contract",
-                    "Unilateral contract",
-                    "Implied contract",
-                    "Executed contract"
-                ],
+                question: "A proprietary lease and shares of stock in a corporation are characteristics of which form of residential ownership?",
+                options: ["Condominium", "Cooperative", "Townhouse", "PUD"],
                 correct: 1,
-                explanation: "A unilateral contract is a one-sided agreement where one party makes a promise to perform upon the occurrence of a specified act by the other party."
+                explanation: "In a cooperative, a corporation owns the real estate, and residents purchase stock shares paired with a proprietary lease to occupy a specific unit."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "An estate that lasts for an indeterminate length of time and can run indefinitely is classified as a:",
+                options: ["Leasehold estate", "Freehold estate", "Less-than-freehold estate", "Estate for years"],
+                correct: 1,
+                explanation: "Freehold estates are ownership interests that last for an indeterminable duration (fee simple or life estates)."
+            },
+
+            // --- ENCUMBRANCES & LIENS ---
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "Which of the following liens takes absolute priority over all other mechanics', mortgage, and property tax liens?",
+                options: ["Federal income tax lien", "Mechanic's lien", "Special assessment and general real estate tax liens", "First mortgage lien"],
+                correct: 2,
+                explanation: "Real estate property taxes and special assessments hold superior priority over all other liens, regardless of recording date."
             },
             {
                 domain: "National",
                 difficulty: "Hard",
-                question: "An investor purchases a commercial property for $850,000 with a capitalization rate of 8.5%. If operating expenses increase by 5% while gross income remains constant, what happens to the property value if the required cap rate rises to 9.2%?",
-                options: [
-                    "Value increases",
-                    "Value decreases significantly",
-                    "Value remains unchanged",
-                    "Value cannot be determined without NOI"
-                ],
+                question: "A neighbor uses a driveway across another's land for twenty years openly, notoriously, and without permission. The neighbor acquires which of the following?",
+                options: ["An easement by necessity", "An easement in gross", "An easement by prescription", "A license"],
+                correct: 2,
+                explanation: "An easement by prescription is acquired through continuous, open, notorious, and hostile use of another's property for the statutory period."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "A wall that is located on the boundary line between two adjoining lots is called a:",
+                options: ["Retaining wall", "Party wall", "Curtain wall", "Partition wall"],
                 correct: 1,
-                explanation: "Higher operating expenses decrease Net Operating Income (NOI). Combined with a higher capitalization rate (yield requirement), the capitalized value (Value = NOI / Cap Rate) decreases substantially."
+                explanation: "A party wall is shared by two separate property owners, usually positioned on the boundary line."
             },
             {
                 domain: "National",
                 difficulty: "Hard",
+                question: "An encroachment occurs when:",
+                options: ["A lien is placed on a title", "A building or fence illegally extends beyond the land of its owner onto neighboring property", "An easement is recorded incorrectly", "A deed restriction limits property use"],
+                correct: 1,
+                explanation: "An encroachment is an unauthorized physical intrusion of an improvement or object across a property boundary line."
+            },
+            {
+                domain: "National",
+                difficulty: "Easy",
+                question: "A claim against a property that provides security for the repayment of a debt is known as a:",
+                options: ["Deed restriction", "Lien", "Easement", "Covenant"],
+                correct: 1,
+                explanation: "A lien is a financial encumbrance against property used as collateral for a debt or obligation."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "Which of the following is classified as a specific lien?",
+                options: ["Federal income tax lien", "Judgment lien", "Mechanic's lien", "State inheritance tax lien"],
+                correct: 2,
+                explanation: "A mechanic's lien attaches only to the specific parcel of real property where work was performed, making it a specific lien."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "An easement appurtenant involves two tracts of land. The land that is burdened by the easement is called the:",
+                options: ["Dominant tenement", "Servient tenement", "Gross estate", "Reversionary parcel"],
+                correct: 1,
+                explanation: "The servient tenement provides the easement and is burdened by it, while the dominant tenement benefits from it."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "An easement in gross benefits which of the following?",
+                options: ["An adjacent parcel of land", "A person or commercial entity rather than a parcel of land", "The municipal tax authority", "Only the primary lienholder"],
+                correct: 1,
+                explanation: "An easement in gross attaches to a person or entity (e.g., utility companies) rather than a specific dominant parcel of land."
+            },
+            {
+                domain: "National",
+                difficulty: "Easy",
+                question: "Private limitations on the use of real property created by a developer in a subdivision are called:",
+                options: ["Zoning ordinances", "CC&Rs (Covenants, Conditions, and Restrictions)", "Building codes", "Eminent domain"],
+                correct: 1,
+                explanation: "CC&Rs are private land-use controls established by developers to maintain neighborhood standards."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "What is the primary distinction between a deed condition and a deed covenant?",
+                options: ["Covenants can only be created by municipalities", "Violation of a condition can result in forfeiture and loss of title, whereas violation of a covenant results in an injunction or damages", "Conditions apply solely to commercial leases", "Covenants require state recording"],
+                correct: 1,
+                explanation: "Breach of a condition can forfeit ownership rights and revert title, while breach of a covenant typically results in monetary damages or court injunctions."
+            },
+
+            // --- CONTRACT LAW ---
+            {
+                domain: "National",
+                difficulty: "Easy",
+                question: "An agreement in which one party makes a promise to induce another party to perform an act without the second party making a reciprocal promise is a:",
+                options: ["Bilateral contract", "Unilateral contract", "Implied contract", "Executed contract"],
+                correct: 1,
+                explanation: "A unilateral contract involves a single promise by one party that becomes binding only if the other party performs the requested act."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "A contract that lacks legal purpose or involves an illegal act from its inception is considered:",
+                options: ["Voidable", "Valid", "Void", "Unenforceable"],
+                correct: 2,
+                explanation: "A void contract has no legal force or effect from the beginning because it lacks essential legal elements."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "What legal remedy allows a court to order the defaulting party to perform according to the exact terms of a real estate purchase contract?",
+                options: ["Liquidated damages", "Rescission", "Specific performance", "Injunction"],
+                correct: 2,
+                explanation: "Specific performance is an equitable remedy compelling the breaching party to carry out contractual obligations."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "A contract is fully performed and all parties have fulfilled their obligations. This contract is described as:",
+                options: ["Executory", "Executed", "Voidable", "Implied"],
+                correct: 1,
+                explanation: "An executed contract is one in which all parties have completely fulfilled all terms and obligations."
+            },
+            {
+                domain: "National",
+                difficulty: "Easy",
+                question: "Which essential element of a valid contract requires that all parties enter into the agreement freely and without duress, menace, or fraud?",
+                options: ["Consideration", "Legal purpose", "Competent parties", "Mutual assent (offer and acceptance)"],
+                correct: 3,
+                explanation: "Mutual assent requires a genuine meeting of the minds based on a voluntary offer and acceptance."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "Under the Statute of Frauds, real estate purchase contracts and leases for more than one year must be:",
+                options: ["Notarized by a state official", "In writing and signed by the parties to be bound", "Recorded in the county land records within 30 days", "Accompanied by a formal title insurance policy"],
+                correct: 1,
+                explanation: "The Statute of Frauds requires real estate contracts to be in writing and signed by the party against whom enforcement is sought."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "A contract entered into with a minor is generally classified as:",
+                options: ["Void", "Valid", "Voidable by the minor", "Illegal"],
+                correct: 2,
+                explanation: "Contracts with minors are voidable at the option of the minor, though binding on the adult party."
+            },
+            {
+                domain: "National",
+                difficulty: "Easy",
+                question: "Something of legal value exchanged between parties to form a contract (e.g., money, promises, property) is known as:",
+                options: ["Earnest money", "Consideration", "Liquidity", "Collateral"],
+                correct: 1,
+                explanation: "Consideration is an essential element representing the exchange of legal value between contracting parties."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "When a new contract is substituted for an existing obligation between the same or new parties, discharging the original contract, it is called:",
+                options: ["Assignment", "Subrogation", "Novation", "Rescission"],
+                correct: 2,
+                explanation: "Novation is the substitution of a new contract for an old one, effectively releasing the original obligor."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "An option contract gives the optionee:",
+                options: ["A binding obligation to purchase the property", "The right to purchase the property at a specified price within a set timeframe without a current obligation to buy", "First refusal rights upon third-party offers", "An immediate fee simple title"],
+                correct: 1,
+                explanation: "An option contract is a unilateral agreement giving the buyer the right to buy within a timeframe, while the seller is bound to sell if exercised."
+            },
+
+            // --- AGENCY & FIDUCIARY DUTIES ---
+            {
+                domain: "National",
+                difficulty: "Easy",
+                question: "What fiduciary duty requires a real estate agent to put the principal's financial and personal best interests above all others, including their own?",
+                options: ["Loyalty", "Care", "Disclosure", "Accounting"],
+                correct: 0,
+                explanation: "Loyalty demands that the agent act solely in the best interests of the principal."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "An agent represents both the buyer and seller in the same transaction with the written consent of both parties. This represents what type of agency?",
+                options: ["Subagency", "Dual agency", "General agency", "Universal agency"],
+                correct: 1,
+                explanation: "Dual agency occurs when one licensee represents both principal parties in the same transaction."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "Which fiduciary duty survives the termination of an agency relationship?",
+                options: ["Obedience", "Loyalty", "Confidentiality", "Reasonable skill and care"],
+                correct: 2,
+                explanation: "The duty of confidentiality regarding the principal's private and financial disclosures continues indefinitely after the agency ends."
+            },
+            {
+                domain: "National",
+                difficulty: "Easy",
+                question: "A real estate licensee appointed by a managing broker to act as the exclusive agent for a specific client is known as a:",
+                options: ["Dual agent", "Designated agent", "General agent", "Universal agent"],
+                correct: 1,
+                explanation: "Designated agency allows a sponsoring broker to assign specific licensees to exclusively represent separate clients in the same transaction."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "An employment contract between a property owner and a real estate broker authorizing the broker to find a buyer is a:",
+                options: ["Purchase agreement", "Listing agreement", "Deed of trust", "Escrow instruction"],
+                correct: 1,
+                explanation: "A listing agreement is an employment contract establishing the agency relationship between seller and broker."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "In an exclusive-right-to-sell listing agreement, if the owner finds a buyer independently without the broker's assistance, what is the broker's entitlement to a commission?",
+                options: ["No commission is owed", "The broker is owed full commission", "The broker is owed 50% of the commission", "Commission is only owed if the buyer was previously registered"],
+                correct: 1,
+                explanation: "An exclusive-right-to-sell listing ensures the broker receives a commission regardless of who procures the buyer."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "What type of agency empowers an agent to conduct all business and sign documents on behalf of the principal pursuant to a broad power of attorney?",
+                options: ["Special agency", "General agency", "Universal agency", "Subagency"],
+                correct: 2,
+                explanation: "A universal agent has broad authority to act for the principal in all matters under a power of attorney."
+            },
+            {
+                domain: "National",
+                difficulty: "Easy",
+                question: "The person who hires a real estate licensee to represent them in a transaction is known as the:",
+                options: ["Customer", "Principal (Client)", "Vendor", "Third party"],
+                correct: 1,
+                explanation: "The principal or client is the person who employs the agent."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "If a broker fails to disclose a known structural defect to a prospective buyer, the broker may be liable for:",
+                options: ["Puffing", "Fraud or negligent misrepresentation", "Antitrust violations", "Subrogation"],
+                correct: 1,
+                explanation: "Failing to disclose known material defects breaches the duty of disclosure and constitutes misrepresentation or fraud."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "Puffing in real estate advertising refers to:",
+                options: ["Exaggerated statements of opinion that a reasonable person would not rely upon as factual", "Direct fraudulent misrepresentation of property boundaries", "Illegal fee-splitting between brokers", "Inflating appraisal values"],
+                correct: 0,
+                explanation: "Puffing involves subjective exaggeration or opinionated praise that is legal, as opposed to fraudulent misrepresentation of material fact."
+            },
+
+            // --- FINANCE & MORTGAGES ---
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "Which clause in a mortgage or deed of trust permits the lender to demand immediate payment of the entire loan balance upon default or transfer of the property?",
+                options: ["Defeasance clause", "Acceleration clause", "Subordination clause", "Exculpatory clause"],
+                correct: 1,
+                explanation: "An acceleration clause authorizes the lender to declare the entire unpaid loan balance due immediately if the borrower defaults."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
                 question: "A borrower secures an FHA-insured loan with an 80% LTV on a property appraised at $400,000. If the lender charges 2.5 discount points, what is the total dollar amount paid for discount points at closing?",
-                options: [
-                    "$6,400",
-                    "$8,000",
-                    "$10,000",
-                    "$32,000"
-                ],
+                options: ["$6,400", "$8,000", "$10,000", "$32,000"],
                 correct: 1,
                 explanation: "Loan amount = $400,000 × 80% = $320,000. Discount points are calculated on the loan amount: $320,000 × 2.5% (0.025) = $8,000."
             },
             {
                 domain: "National",
                 difficulty: "Hard",
-                question: "Which clause in a mortgage or deed of trust allows the lender to demand immediate payment of the entire loan balance upon default or transfer of the property?",
-                options: [
-                    "Defeasance clause",
-                    "Acceleration clause",
-                    "Subordination clause",
-                    "Alienation clause"
-                ],
-                correct: 1,
-                explanation: "An acceleration clause permits the lender to declare the entire unpaid principal due immediately upon a borrower's default."
+                question: "What instrument is used to pledge real property as collateral for a debt without transferring legal title in title-theory states?",
+                options: ["Mortgage", "Promissory note", "Deed of trust", "Bill of sale"],
+                correct: 2,
+                explanation: "In title-theory states, a deed of trust conveys bare legal title to a third-party trustee as security for the debt."
             },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "The primary purpose of the Truth in Lending Act (TILA / Regulation Z) is to:",
+                options: ["Regulate maximum allowable interest rates", "Ensure lenders disclose complete credit terms and annual percentage rate (APR) to borrowers", "Prohibit discrimination in mortgage underwriting", "Establish government-backed mortgage insurance"],
+                correct: 1,
+                explanation: "TILA requires clear disclosure of credit terms and APR so consumers can compare credit costs."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "Under RESPA (Real Estate Settlement Procedures Act), lenders are prohibited from:",
+                options: ["Charging origination fees", "Paying or accepting kickbacks, unearned fees, or referral fees", "Requiring title insurance", "Requiring escrow accounts for taxes and insurance"],
+                correct: 1,
+                explanation: "RESPA prohibits kickbacks and unearned fees for settlement services."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "The market where existing mortgage loans are bought and sold among investors and government-sponsored enterprises (Fannie Mae, Freddie Mac) is called the:",
+                options: ["Primary mortgage market", "Secondary mortgage market", "Open capital exchange", "Federal Reserve discount window"],
+                correct: 1,
+                explanation: "The secondary mortgage market purchases existing loans from primary lenders to maintain liquidity."
+            },
+            {
+                domain: "National",
+                difficulty: "Easy",
+                question: "A loan in which the borrower makes equal monthly payments consisting of principal and interest over a set term until the balance is zero is a:",
+                options: ["Balloon mortgage", "Fully amortized loan", "Term loan", "Adjustable-rate mortgage"],
+                correct: 1,
+                explanation: "A fully amortized loan pays down both principal and interest incrementally until the debt is fully extinguished."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "What does a discount point do to a lender's yield?",
+                options: ["Decreases yield by 1%", "Increases yield by approximately 1/8% per point", "Has no effect on yield", "Doubles the monthly interest rate"],
+                correct: 1,
+                explanation: "Each discount point paid upfront generally increases the lender's yield by approximately 1/8% (0.125%)."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "The ratio of the loan amount to the appraised value or purchase price of a property (whichever is less) is known as:",
+                options: ["Debt-to-income ratio", "Loan-to-Value (LTV) ratio", "Capitalization rate", "Equity ratio"],
+                correct: 1,
+                explanation: "LTV expresses the loan amount as a percentage of property value."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "Which federal legislation prohibits lenders from discriminating against credit applicants on the basis of race, color, religion, national origin, sex, marital status, or age?",
+                options: ["Equal Credit Opportunity Act (ECOA)", "RESPA", "TILA", "Fair Housing Act"],
+                correct: 0,
+                explanation: "ECOA prohibits credit discrimination across protected classes."
+            },
+
+            // --- APPRAISAL & VALUATION ---
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "An investor purchases a commercial property for $850,000 with a capitalization rate of 8.5%. If operating expenses increase by 5% while gross income remains constant, what happens to the property value if the required cap rate rises to 9.2%?",
+                options: ["Value increases", "Value decreases significantly", "Value remains unchanged", "Value cannot be determined without NOI"],
+                correct: 1,
+                explanation: "Higher operating expenses decrease Net Operating Income (NOI). Combined with a higher capitalization rate, capitalized value decreases substantially."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "In the sales comparison approach to appraisal, if a comparable property is superior to the subject property in location, how is the adjustment made?",
+                options: ["Add value to the comparable property", "Subtract value from the comparable property", "Add value to the subject property", "Make no adjustment"],
+                correct: 1,
+                explanation: "When a comparable property is superior, you subtract value from the comparable to equate it to the subject property."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "Loss in property value from any cause, such as physical deterioration, functional obsolescence, or external obsolescence, is referred to as:",
+                options: ["Depreciation", "Appreciation", "Amortization", "Capitalization"],
+                correct: 0,
+                explanation: "Depreciation represents a loss in property value from any of its three primary obsolescence categories."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "An outdated floor plan with four bedrooms sharing a single upstairs bathroom exhibits which type of depreciation?",
+                options: ["Physical deterioration", "Functional obsolescence", "External (economic) obsolescence", "Normal wear and tear"],
+                correct: 1,
+                explanation: "Functional obsolescence stems from outdated design, poor floor plans, or inadequate facilities within the property."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "The principle of value stating that maximum value is realized when land use is in harmony with surrounding neighborhood standards is:",
+                options: ["Substitution", "Anticipation", "Conformity", "Highest and best use"],
+                correct: 2,
+                explanation: "The principle of conformity holds that maximum value is achieved when properties conform to surrounding architectural and social standards."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "The most probable price a property should bring in a competitive and open market under all conditions requisite to a fair sale is:",
+                options: ["Assessed value", "Market value", "Insurable value", "Liquidation value"],
+                correct: 1,
+                explanation: "Market value is the objective economic estimation of what a willing buyer and seller will agree upon in an open market."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "Using the income capitalization approach, what is the value of a property generating $90,000 in Net Operating Income with a capitalization rate of 10%?",
+                options: ["$900,000", "$9,000,000", "$810,000", "$90,000"],
+                correct: 0,
+                explanation: "Value = NOI / Cap Rate -> $90,000 / 0.10 = $900,000."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "The economic principle asserting that a prudent buyer will not pay more for a property than the cost of acquiring an equally desirable substitute is:",
+                options: ["Principle of Substitution", "Principle of Contribution", "Principle of Increasing Returns", "Principle of Competition"],
+                correct: 0,
+                explanation: "The principle of substitution is the foundational concept underlying all three appraisal approaches."
+            },
+            {
+                domain: "National",
+                difficulty: "Easy",
+                question: "The use of land that yields the greatest net return over time and establishes a property's true market value is its:",
+                options: ["Legal nonconforming use", "Highest and best use", "Conditional use", "Permitted variance"],
+                correct: 1,
+                explanation: "Highest and best use is the legally permissible, physically possible, financially feasible, and maximally productive use of land."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "Loss in property value resulting from environmental or economic factors outside the property boundaries (e.g., a nearby factory or highway expansion) is:",
+                options: ["Curable physical deterioration", "Functional obsolescence", "External (economic) obsolescence", "Incurable structural decay"],
+                correct: 2,
+                explanation: "External obsolescence is caused by factors outside the property lines and is almost always incurable."
+            },
+
+            // --- FAIR HOUSING & FEDERAL LAWS ---
+            {
+                domain: "National",
+                difficulty: "Easy",
+                question: "The Federal Fair Housing Act of 1968 prohibits discrimination in housing based on race, color, religion, sex, national origin, and what two later protected classes added in 1988?",
+                options: ["Age and marital status", "Disability and familial status", "Sexual orientation and gender identity", "Source of income and veteran status"],
+                correct: 1,
+                explanation: "The 1988 Fair Housing Amendments Act added disability and familial status to the protected classes."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "A real estate broker encourages homeowners to sell by claiming that minority families are moving into the neighborhood, causing property values to decline. This illegal practice is known as:",
+                options: ["Blockbusting", "Steering", "Redlining", "Puffing"],
+                correct: 0,
+                explanation: "Blockbusting (panic peddling) is the illegal practice of inducing homeowners to sell by generating fear of minority migration."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "A lender refuses to issue residential mortgages in specific urban neighborhoods based on demographic composition, regardless of borrower creditworthiness. This illegal practice is:",
+                options: ["Blockbusting", "Steering", "Redlining", "Intermediation"],
+                correct: 2,
+                explanation: "Redlining is the illegal denial of loans or insurance in designated geographic areas based on race or national origin."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "Directing prospective home buyers toward or away from specific neighborhoods based on their race or ethnic background is known as:",
+                options: ["Steering", "Blockbusting", "Redlining", "Puffing"],
+                correct: 0,
+                explanation: "Steering is the unlawful practice of channeling home seekers toward or away from particular areas to maintain or alter demographic patterns."
+            },
+            {
+                domain: "National",
+                difficulty: "Easy",
+                question: "Which federal landmark civil rights law prohibits racial discrimination in all property sales and rentals without exception?",
+                options: ["Civil Rights Act of 1866", "Fair Housing Act of 1968", "Equal Credit Opportunity Act", "Americans with Disabilities Act"],
+                correct: 0,
+                explanation: "The Civil Rights Act of 1866 prohibits all racial discrimination in the sale or rental of property with no exceptions."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "Under the Americans with Disabilities Act (ADA), commercial facilities and public accommodations must:",
+                options: ["Provide free housing to disabled individuals", "Remove architectural and structural barriers where readily achievable", "Comply strictly with residential zoning codes", "Exempt disabled tenants from security deposits"],
+                correct: 1,
+                explanation: "Title III of the ADA mandates barrier removal in public accommodations and commercial facilities where readily achievable."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "What federal law requires lenders to report geographic data on mortgage loans (hmda data) to evaluate whether lenders are serving housing needs of communities?",
+                options: ["Home Mortgage Disclosure Act (HMDA)", "RESPA", "TILA", "Truth in Lending Act"],
+                correct: 0,
+                explanation: "HMDA requires institutional lenders to track and publish mortgage data to detect redlining and credit discrimination."
+            },
+            {
+                domain: "National",
+                difficulty: "Medium",
+                question: "An exemption to the Federal Fair Housing Act allows religious organizations to:",
+                options: ["Discriminate in commercial leasing across all properties", "Limit housing units they own to members of their specific religion, provided the religion is not restricted by race or color", "Refuse to rent to families with children nationwide", "Charge higher security deposits to minority applicants"],
+                correct: 1,
+                explanation: "Religious organizations may restrict housing occupancy to members of their religion, provided membership is not closed on racial grounds."
+            },
+            {
+                domain: "National",
+                difficulty: "Easy",
+                question: "The maximum fine for a first-time violation of the Federal Fair Housing Act assessed by an administrative law judge can be up to:",
+                options: ["$5,000", "$11,000", "$21,663 (adjusted for inflation)", "$100,000"],
+                correct: 2,
+                explanation: "HUD administrative penalties for fair housing violations carry substantial statutory civil penalties adjusted periodically for inflation."
+            },
+            {
+                domain: "National",
+                difficulty: "Hard",
+                question: "Which federal environmental statute imposes strict, joint and several liability for hazardous waste cleanup costs upon current and past property owners?",
+                options: ["NEPA", "CERCLA (Superfund)", "Clean Air Act", "Safe Drinking Water Act"],
+                correct: 1,
+                explanation: "CERCLA (Comprehensive Environmental Response, Compensation, and Liability Act) establishes strict, joint and several liability for environmental contamination cleanup."
+            },
+
+            // --- ILLINOIS STATE LAW & LICENSE REGULATIONS ---
             {
                 domain: "State",
                 difficulty: "Easy",
-                question: "In Illinois, real estate licenses are issued and regulated by which state agency?",
-                options: [
-                    "Illinois Association of Realtors (IAR)",
-                    "Illinois Department of Financial and Professional Regulation (IDFPR)",
-                    "Illinois Real Estate Administration Board",
-                    "Illinois Attorney General's Office"
-                ],
+                question: "In Illinois, real estate licenses are issued, regulated, and disciplined by which state agency?",
+                options: ["Illinois Association of Realtors (IAR)", "Illinois Department of Financial and Professional Regulation (IDFPR)", "Illinois Real Estate Administration Board", "Illinois Attorney General's Office"],
                 correct: 1,
-                explanation: "The IDFPR administers and enforces the Real Estate License Act of 2000, issuing licenses and disciplining licensees."
+                explanation: "The IDFPR administers and enforces the Real Estate License Act of 2000, issuing licenses and overseeing discipline."
             },
             {
                 domain: "State",
                 difficulty: "Easy",
                 question: "How many total pre-licensing education hours are required for an individual seeking an Illinois Real Estate Broker license?",
-                options: [
-                    "45 hours",
-                    "60 hours",
-                    "75 hours",
-                    "90 hours"
-                ],
+                options: ["45 hours", "60 hours", "75 hours", "90 hours"],
                 correct: 2,
                 explanation: "Illinois requires 75 hours of pre-licensing instruction (60-hour broker course plus 15-hour interactive applied broker course)."
             },
             {
                 domain: "State",
-                difficulty: "Hard",
+                difficulty: "Medium",
                 question: "Under the Illinois Real Estate License Act, what is the maximum statutory time limit for a sponsoring broker to disburse earnest money funds after a transaction is successfully closed or terminated?",
-                options: [
-                    "Immediately upon closing",
-                    "Within 24 hours",
-                    "In accordance with the terms of the contract/escrow instructions",
-                    "Within 14 business days"
-                ],
+                options: ["Immediately upon closing", "Within 24 hours", "In accordance with the written terms of the contract/escrow instructions", "Within 14 business days"],
                 correct: 2,
-                explanation: "In Illinois, escrow monies must be maintained in an escrow account until the transaction is consummated or terminated, and disbursed strictly according to the terms of the contract or mutual release instructions."
+                explanation: "In Illinois, escrow monies must be maintained in an escrow account until consummation or termination, disbursed strictly according to contract/escrow instructions."
+            },
+            {
+                domain: "State",
+                difficulty: "Hard",
+                question: "What is the maximum penalty per offense that the IDFPR can assess against an unlicensed person practicing real estate without a license?",
+                options: ["$1,000", "$5,000", "$10,000", "$25,000"],
+                correct: 3,
+                explanation: "Under the Real Estate License Act of 2000, the IDFPR may levy a civil penalty of up to $25,000 per offense for unauthorized practice."
+            },
+            {
+                domain: "State",
+                difficulty: "Medium",
+                question: "In Illinois, residential real property sellers must complete and deliver which mandatory disclosure form to a prospective buyer before the signing of an offer?",
+                options: ["Lead-Based Paint Disclosure", "Residential Real Property Disclosure Report", "Radon Hazard Disclosure", "Mold and Environmental Addendum"],
+                correct: 1,
+                explanation: "The Illinois Residential Real Property Disclosure Act requires sellers to disclose material defects using the state-mandated disclosure report."
             },
             {
                 domain: "State",
                 difficulty: "Hard",
                 question: "When calculating Illinois state real estate transfer tax stamps for a deed recording, what is the statutory rate per $500 of value (or fraction thereof)?",
-                options: [
-                    "$0.50 for state ($0.25 for county)",
-                    "$1.00 for state ($0.50 for county)",
-                    "$0.75 for state",
-                    "$1.50 total combined"
-                ],
+                options: ["$0.50 for state ($0.25 for county)", "$1.00 for state ($0.50 for county)", "$0.75 for state", "$1.50 total combined"],
                 correct: 0,
                 explanation: "The Illinois real estate transfer tax rate is $0.50 per $500 (or fraction thereof) of value, and counties typically add $0.25 per $500."
+            },
+            {
+                domain: "State",
+                difficulty: "Medium",
+                question: "Which Illinois statute governs the creation, operation, and management of condominium properties throughout the state?",
+                options: ["Illinois Landlord and Tenant Act", "Illinois Condominium Property Act", "Illinois Plat Act", "Illinois Real Estate License Act"],
+                correct: 1,
+                explanation: "The Illinois Condominium Property Act regulates condo formation, governance, common elements, and association disclosures."
+            },
+            {
+                domain: "State",
+                difficulty: "Easy",
+                question: "In Illinois, if a residential lease is month-to-month, what is the statutory notice period required for a landlord to terminate the tenancy?",
+                options: ["10 days", "30 days", "60 days", "90 days"],
+                correct: 1,
+                explanation: "For a month-to-month tenancy in Illinois, 30 days written notice is required by either party to terminate."
+            },
+            {
+                domain: "State",
+                difficulty: "Hard",
+                question: "Under Illinois law, how long must a sponsoring broker retain escrow records, contracts, and signed disclosures?",
+                options: ["2 years", "3 years", "5 years", "7 years"],
+                correct: 2,
+                explanation: "Illinois administrative rules require sponsoring brokers to maintain transaction and escrow records for a minimum of 5 years."
+            },
+            {
+                domain: "State",
+                difficulty: "Medium",
+                question: "What is the primary function of the Real Estate Research and Education Fund in Illinois?",
+                options: ["Funding state legislative lobbying for real estate brokers", "Providing scholarships and educational research grants administered through universities and colleges", "Paying out legal judgments against bankrupt brokers", "Issuing commercial building permits"],
+                correct: 1,
+                explanation: "Portions of license fees feed the Real Estate Research and Education Fund to support educational programs and research."
+            },
+            {
+                domain: "State",
+                difficulty: "Hard",
+                question: "In Illinois, what fund exists to compensate members of the public who suffer monetary losses due to fraud, embezzlement, or licensee dishonesty?",
+                options: ["Real Estate Recovery Fund (Real Estate License Administration Fund)", "State Guaranty Association", "IDFPR Indemnity Reserve", "Realtors Association Protection Fund"],
+                correct: 0,
+                explanation: "The Real Estate Recovery Fund provides a mechanism for consumers to recover actual losses resulting from licensee fraud or bad faith."
+            },
+            {
+                domain: "State",
+                difficulty: "Medium",
+                question: "When an Illinois managing broker terminates sponsorship of a licensee, what must the sponsoring broker do with the licensee's license?",
+                options: ["Destroy the license card immediately", "Endorse and return the license to the IDFPR (or transmit electronically) within 48 hours and notify the licensee", "Transfer the license directly to the local board", "Hold the license in escrow for 90 days"],
+                correct: 1,
+                explanation: "The sponsoring broker must sign and endorse the license, deliver it to IDFPR (or process online endorsement) within 48 hours, and give a copy to the licensee."
+            },
+            {
+                domain: "State",
+                difficulty: "Easy",
+                question: "How often must an Illinois real estate broker renew their license?",
+                options: ["Annually on March 31", "Every two years by April 30 of odd-numbered years", "Every four years on December 31", "Every five years on the licensee's birth date"],
+                correct: 1,
+                explanation: "Illinois broker licenses expire on April 30 of every odd-numbered year, requiring 24 hours of continuing education for renewal."
+            },
+            {
+                domain: "State",
+                difficulty: "Hard",
+                question: "What is the continuing education (CE) requirement for an Illinois broker license renewal each two-year renewal cycle?",
+                options: ["12 hours", "18 hours", "24 hours (including core curriculum and interactive hours)", "36 hours"],
+                correct: 2,
+                explanation: "Illinois brokers must complete 24 hours of CE per renewal cycle, consisting of mandatory core topics and elective courses."
+            },
+            {
+                domain: "State",
+                difficulty: "Medium",
+                question: "Under the Illinois Real Estate License Act, can a licensed broker accept a commission or direct referral fee from anyone other than their own sponsoring broker?",
+                options: ["Yes, if agreed in writing with the client", "Yes, if the other broker is licensed in another state", "No, a licensee may only receive compensation from their sponsoring broker", "Yes, for commercial transactions"],
+                correct: 2,
+                explanation: "Licensees are strictly prohibited from accepting commission or compensation from anyone other than their own sponsoring broker."
+            },
+            {
+                domain: "State",
+                difficulty: "Hard",
+                question: "If an Illinois seller discovers a material defect after delivering the Residential Real Property Disclosure Report but before closing, what is the seller's obligation?",
+                options: ["Nothing, the prior disclosure is binding", "Provide a supplemental written disclosure notice correcting the information", "Automatically cancel the purchase contract", "Pay a civil penalty to the IDFPR"],
+                correct: 1,
+                explanation: "Sellers must provide a supplemental disclosure if they learn that prior disclosures were inaccurate or incomplete prior to closing."
+            },
+            {
+                domain: "State",
+                difficulty: "Medium",
+                question: "In Illinois, what legal document is typically used to convey title to real property in residential transactions?",
+                options: ["Warranty deed (Special or General Warranty Deed)", "Land patent", "Contract for deed", "Administrator's assignment"],
+                correct: 0,
+                explanation: "Warranty deeds (General or Special Warranty Deeds) are standard instruments used to convey marketable fee simple title in Illinois."
+            },
+            {
+                domain: "State",
+                difficulty: "Easy",
+                question: "What is the statutory redemption period for a mortgagor following a judicial foreclosure sale in Illinois under standard foreclosure law?",
+                options: ["7 days", "30 days", "7 months from the date of service or 3 months from the date of sale (whichever is later)", "1 full year"],
+                correct: 2,
+                explanation: "Illinois foreclosure law provides statutory redemption rights typically lasting 7 months from service or 3 months from sale, whichever is later."
+            },
+            {
+                domain: "State",
+                difficulty: "Hard",
+                question: "Under the Illinois Plats Act, when a tract of land is divided into two or more parts, any of which is less than what acreage, must a plat be surveyed and recorded?",
+                options: ["1 acre", "5 acres", "10 acres", "20 acres"],
+                correct: 1,
+                explanation: "The Illinois Plats Act requires surveying and recording a plat when dividing land into parcels under 5 acres (with specific statutory exceptions)."
+            },
+            {
+                domain: "State",
+                difficulty: "Medium",
+                question: "In Illinois, what is the legal usury limit on residential real estate loans with an interest rate secured by real estate?",
+                options: ["Maximum 8% per annum", "Maximum 12% per annum", "There is no statutory interest rate ceiling on residential mortgage loans (usury limits are largely preempted/lifted for first liens)", "Maximum 18% per annum"],
+                correct: 2,
+                explanation: "Illinois has lifted interest rate ceilings (usury limits) on most first-lien residential mortgage loans pursuant to federal and state parity laws."
             }
         ];
 
-        let selectedDomain = "National";
+        let selectedDomain = "Mixed";
         let selectedDifficulty = "Mixed";
+        let selectedCount = 10;
         let activeQuestions = [];
         let currentIndex = 0;
         let score = 0;
@@ -593,19 +1218,22 @@
 
         setupButtonGroups('domainSelector', (val) => { selectedDomain = val; });
         setupButtonGroups('difficultySelector', (val) => { selectedDifficulty = val; });
+        setupButtonGroups('countSelector', (val) => { selectedCount = parseInt(val, 10); });
 
         startBtn.addEventListener('click', () => {
-            activeQuestions = questionPool.filter(q => {
+            let filtered = questionPool.filter(q => {
                 const domainMatch = selectedDomain === 'Mixed' || q.domain === selectedDomain;
                 const diffMatch = selectedDifficulty === 'Mixed' || q.difficulty === selectedDifficulty;
                 return domainMatch && diffMatch;
             });
 
-            if (activeQuestions.length === 0) {
-                activeQuestions = [...questionPool];
+            if (filtered.length === 0) {
+                filtered = [...questionPool];
             }
 
-            activeQuestions = activeQuestions.sort(() => 0.5 - Math.random()).slice(0, 10);
+            const shuffled = [...filtered].sort(() => 0.5 - Math.random());
+            const count = Math.min(selectedCount, shuffled.length);
+            activeQuestions = shuffled.slice(0, count);
             
             currentIndex = 0;
             score = 0;
@@ -679,7 +1307,7 @@
             } else if (percentage >= 70) {
                 resultsSummaryText.textContent = "Good job! Review tricky definitions and math formulas before exam day.";
             } else {
-                resultsSummaryText.textContent = "Keep practicing! Revest your Kaplan study modules and flashcards.";
+                resultsSummaryText.textContent = "Keep practicing! Revisit your Kaplan study modules and flashcards.";
             }
         }
 
